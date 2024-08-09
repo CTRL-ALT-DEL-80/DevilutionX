@@ -97,8 +97,9 @@ int LineSpacing;
 /** The number of pixels to move finished quest, to seperate them from the active ones */
 int FinishedQuestOffset;
 
-const char *const QuestTriggerNames[5] = {
+const char *const QuestTriggerNames[6] = {
 	N_(/* TRANSLATORS: Quest Map*/ "King Leoric's Tomb"),
+	N_(/* TRANSLATORS: Quest Map*/ "Infested Cellar"),
 	N_(/* TRANSLATORS: Quest Map*/ "The Chamber of Bone"),
 	N_(/* TRANSLATORS: Quest Map*/ "Maze"),
 	N_(/* TRANSLATORS: Quest Map*/ "A Dark Passage"),
@@ -126,6 +127,11 @@ void DrawWarLord(Point position)
 	SetPiece = { position, GetDunSize(dunData.get()) };
 
 	PlaceDunTiles(dunData.get(), position, 6);
+}
+
+void DrawInfested(quest_id q, Point position)
+{
+	Quests[q].position = { 73, 80 };
 }
 
 void DrawSChamber(quest_id q, Point position)
@@ -262,6 +268,8 @@ void InitQuests()
 
 	if (Quests[Q_SKELKING]._qactive == QUEST_NOTAVAIL)
 		Quests[Q_SKELKING]._qvar2 = 2;
+	if (Quests[Q_INFESTED]._qactive != QUEST_NOTAVAIL)
+		Quests[Q_INFESTED].position = { 73, 80 }; // INFESTED : hacky solution, i just need to set position somewhere
 	if (Quests[Q_ROCK]._qactive == QUEST_NOTAVAIL)
 		Quests[Q_ROCK]._qvar2 = 2;
 	Quests[Q_LTBANNER]._qvar1 = 1;
@@ -344,6 +352,17 @@ void CheckQuests()
 			poisonWater._qlog = true; // even if the player skips talking to Pepin completely they should at least notice the water being purified once they cleanse the level
 			NetSendCmdQuest(true, poisonWater);
 			StartPWaterPurify();
+		}
+		Quest &infestedCellarQuest = Quests[Q_INFESTED];
+		if (setlvlnum == infestedCellarQuest._qslvl
+		    && infestedCellarQuest._qactive != QUEST_INIT
+		    && leveltype == infestedCellarQuest._qlvltype
+		    && ActiveMonsterCount == 4
+		    && infestedCellarQuest._qactive != QUEST_DONE) {
+			infestedCellarQuest._qactive = QUEST_DONE;
+			infestedCellarQuest._qlog = true; // even if the player skips talking to Pepin completely they should at least notice the water being purified once they cleanse the level
+			NetSendCmdQuest(true, infestedCellarQuest);
+			// TODO: Play sound to notify the player the level is clear 
 		}
 	} else if (MyPlayer->_pmode == PM_STAND) {
 		for (auto &quest : Quests) {
@@ -506,6 +525,8 @@ Point GetMapReturnPosition()
 	switch (setlvlnum) {
 	case SL_SKELKING:
 		return Quests[Q_SKELKING].position + Direction::SouthEast;
+	case SL_INFESTED:
+		return Quests[Q_INFESTED].position + Direction::SouthEast;
 	case SL_BONECHAMB:
 		return Quests[Q_SCHAMB].position + Direction::SouthEast;
 	case SL_POISONWATER:
