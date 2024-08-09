@@ -388,6 +388,8 @@ void CreateTown(lvl_entry entry)
 		if (TWarpFrom == 17) {
 			ViewPosition = { 79, 62 };
 		}
+	} else if (entry == ENTRY_RTNLVL) { // Infested Cellar
+		ViewPosition = { 73, 80 };
 	}
 
 	DrlgTPass3();
