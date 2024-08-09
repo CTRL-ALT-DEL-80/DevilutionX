@@ -34,6 +34,7 @@ void InitL4Triggers();
 void InitHiveTriggers();
 void InitCryptTriggers();
 void InitSKingTriggers();
+void InitInfestedTriggers();
 void InitSChambTriggers();
 void InitPWaterTriggers();
 void InitVPTriggers();
