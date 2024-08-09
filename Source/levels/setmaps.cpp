@@ -25,6 +25,7 @@ namespace devilution {
 const char *const QuestLevelNames[] = {
 	"",
 	N_("Skeleton King's Lair"),
+	N_("Infested Cellar"),
 	N_("Chamber of Bone"),
 	N_("Maze"),
 	N_("Poisoned Water Supply"),
@@ -120,6 +121,13 @@ void LoadSetMap()
 		LoadPalette("levels\\l1data\\l1_2.pal");
 		AddSKingObjs();
 		InitSKingTriggers();
+		break;
+	case SL_INFESTED:
+		if (Quests[Q_INFESTED]._qactive == QUEST_INIT)
+			Quests[Q_INFESTED]._qactive = QUEST_ACTIVE;
+		LoadL3Dungeon("levels\\l3data\\lair.dun", { 43, 65 });
+		LoadPalette("levels\\l3data\\l3_2.pal");
+		InitInfestedTriggers();
 		break;
 	case SL_BONECHAMB:
 		LoadPreL2Dungeon("levels\\l2data\\bonecha2.dun");
