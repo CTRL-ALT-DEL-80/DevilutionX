@@ -615,16 +615,20 @@ void CheckTown()
 
 void CheckRportal()
 {
-	for (auto &missile : Missiles) {
-		if (missile._mitype == MissileID::RedPortal) {
-			if (EntranceBoundaryContains(missile.position.tile, cursPosition)) {
-				trigflag = true;
-				InfoString = _("Portal to");
-				AddPanelString(!setlevel ? _("The Unholy Altar") : _("level 15"));
-				cursPosition = missile.position.tile;
-			}
-		}
-	}
+    for (auto &missile : Missiles) {
+        if (missile._mitype == MissileID::RedPortal) {
+            if (EntranceBoundaryContains(missile.position.tile, cursPosition)) {
+                trigflag = true;
+                InfoString = _("Portal to");
+                if (currlevel == Quests[Q_BUTCHER]._qlevel || setlvlnum == Quests[Q_BUTCHER]._qslvl) {
+                    AddPanelString(!setlevel ? _("The Butcher's Chamber") : _("level 2"));
+                } else {
+                    AddPanelString(!setlevel ? _("The Unholy Altar") : _("level 15"));
+                }
+                cursPosition = missile.position.tile;
+            }
+        }
+    }
 }
 
 void CheckCursMove()
