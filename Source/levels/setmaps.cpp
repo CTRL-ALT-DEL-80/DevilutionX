@@ -24,6 +24,7 @@ namespace devilution {
 /** Maps from quest level to quest level names. */
 const char *const QuestLevelNames[] = {
 	"",
+	N_("The Butcher's Chamber"),
 	N_("Skeleton King's Lair"),
 	N_("Chamber of Bone"),
 	N_("Maze"),
