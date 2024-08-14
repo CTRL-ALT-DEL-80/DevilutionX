@@ -335,7 +335,8 @@ void CheckQuests()
 	if (currlevel == butcherQuest._qlevel
 		&& !setlevel
 		&& butcherQuest._qactive == QUEST_ACTIVE
-	    && (MyPlayer->position.tile.x >= butcherQuest.position.x && MyPlayer->position.tile.y >= butcherQuest.position.y && MyPlayer->position.tile.x <= butcherQuest.position.x + 7 && MyPlayer->position.tile.y <= butcherQuest.position.y + 7)) {
+		&& (MyPlayer->position.tile.x >= butcherQuest.position.x && MyPlayer->position.tile.y >= butcherQuest.position.y 
+		&& MyPlayer->position.tile.x <= butcherQuest.position.x + 7 && MyPlayer->position.tile.y <= butcherQuest.position.y + 7)) {
 		if (butcherQuest._qvar1 < QS_BUTCHER_VISITED_ROOM)
 			butcherQuest._qvar1 = QS_BUTCHER_VISITED_ROOM;
 	}
