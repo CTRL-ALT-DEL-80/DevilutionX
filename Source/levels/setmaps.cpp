@@ -36,6 +36,14 @@ const char *const QuestLevelNames[] = {
 
 namespace {
 
+void AddButcherObjs()
+{
+	constexpr WorldTileRectangle StartRoomGate { { 19, 9 }, { 1, 1 } };
+	ObjectAtPosition({ 34, 50 }).InitializeLoadedObject(StartRoomGate, 0);
+	constexpr WorldTileRectangle MiddleGates { { 12, 9 }, { 5, 1 } };
+	ObjectAtPosition({ 34, 26 }).InitializeLoadedObject(MiddleGates, 1);
+}
+
 void AddSKingObjs()
 {
 	constexpr WorldTileRectangle SmallSecretRoom { { 20, 7 }, { 3, 3 } };
@@ -108,6 +116,21 @@ void LoadArenaMap(const char *path, Point viewPosition, Point exitTrigger)
 void LoadSetMap()
 {
 	switch (setlvlnum) {
+	case SL_BUTCHER:
+		if (Quests[Q_BUTCHER]._qactive == QUEST_DONE) {
+			Quests[Q_BUTCHER]._qvar2 = QS2_BUTCHER_DO_PORTAL;
+		} else if (Quests[Q_BUTCHER]._qactive == QUEST_ACTIVE) {
+			Quests[Q_BUTCHER]._qvar2 = QS2_BUTCHER_NO_PORTAL;
+		}
+		//NEED TO CREATE MAP...
+		LoadPreL1Dungeon("levels\\l1data\\bchamber1.dun");
+		Point spawn { 54, 38 };
+		LoadL1Dungeon("levels\\l1data\\bchamber2.dun", spawn + Direction::South);
+		SetMapTransparency("levels\\l1data\\bchambert.dun");
+		LoadPalette("levels\\l1data\\l1_1.pal");
+		AddButcherObjs();
+		InitNoTriggers();
+		break;
 	case SL_SKELKING:
 		if (Quests[Q_SKELKING]._qactive == QUEST_INIT) {
 			Quests[Q_SKELKING]._qactive = QUEST_ACTIVE;
