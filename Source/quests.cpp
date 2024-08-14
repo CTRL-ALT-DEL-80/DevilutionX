@@ -55,7 +55,7 @@ QuestData QuestsData[] = {
 	{       8,          -1, DTYPE_NONE,          9,      100,    SL_NONE,         true,               TEXT_ZHAR1,    N_("Zhar the Mad")             },
 	{      14,          -1, DTYPE_NONE,         21,      100,    SL_NONE,         true,               TEXT_VEIL9,    N_("Lachdanan")                },
 	{      15,          -1, DTYPE_NONE,         23,      100,    SL_NONE,         false,              TEXT_VILE3,    N_("Diablo")                   },
-	{       2,           2, DTYPE_CATHEDRAL,     0,      100,    SL_BUTCHER,      false,              TEXT_BUTCH9,   N_("The Butcher")              },
+	{       2,           2, DTYPE_CATHEDRAL,     0,      100,    SL_BUTCHER,      false,              TEXT_DEADGUY_BUTCHER,   N_("The Butcher")              },
 	{       4,          -1, DTYPE_NONE,          4,      100,    SL_NONE,         true,               TEXT_BANNER2,  N_("Ogden's Sign")             },
 	{       7,          -1, DTYPE_NONE,          8,      100,    SL_NONE,         true,               TEXT_BLINDING, N_("Halls of the Blind")       },
 	{       5,          -1, DTYPE_NONE,          6,      100,    SL_NONE,         true,               TEXT_BLOODY,   N_("Valor")                    },
