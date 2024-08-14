@@ -116,11 +116,12 @@ void LoadArenaMap(const char *path, Point viewPosition, Point exitTrigger)
 void LoadSetMap()
 {
 	switch (setlvlnum) {
-	case SL_BUTCHER:
-		if (Quests[Q_BUTCHER]._qactive == QUEST_DONE) {
-			Quests[Q_BUTCHER]._qvar2 = QS2_BUTCHER_DO_PORTAL;
-		} else if (Quests[Q_BUTCHER]._qactive == QUEST_ACTIVE) {
-			Quests[Q_BUTCHER]._qvar2 = QS2_BUTCHER_NO_PORTAL;
+	case SL_BUTCHER: {
+		Quest &butcherQuest = Quests[Q_BUTCHER];
+		if (butcherQuest._qactive == QUEST_DONE) {
+			butcherQuest._qvar2 = QS2_BUTCHER_DO_PORTAL;
+		} else if (butcherQuest._qactive == QUEST_ACTIVE) {
+			butcherQuest._qvar2 = QS2_BUTCHER_NO_PORTAL;
 		}
 		LoadPreL1Dungeon("levels\\l1data\\bchamber1.dun");
 		Point spawn { 54, 38 };
@@ -128,8 +129,11 @@ void LoadSetMap()
 		SetMapTransparency("levels\\l1data\\bchambert.dun");
 		LoadPalette("levels\\l1data\\l1_1.pal");
 		AddButcherObjs();
-		InitNoTriggers();
-		break;
+		if (butcherQuest._qactive != QUEST_DONE)
+			InitNoTriggers();
+		else
+			InitButcherTriggers();
+	} break;
 	case SL_SKELKING:
 		if (Quests[Q_SKELKING]._qactive == QUEST_INIT) {
 			Quests[Q_SKELKING]._qactive = QUEST_ACTIVE;
