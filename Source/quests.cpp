@@ -653,21 +653,20 @@ void ResyncQuests()
 
 	LoadingMapObjects = true;
 
-	if (currlevel == Quests[Q_BUTCHER]._qlevel && !setlevel) {
-		if (Quests[Q_BUTCHER]._qactive == QUEST_ACTIVE) {
-			if (Quests[Q_BUTCHER]._qvar1 >= QS_BUTCHER_VISITED_WIRT) {
-				QuestDialogTable[TOWN_DRUNK][Q_BUTCHER] = TEXT_FARNHAM_BUTCHER2;
-				QuestDialogTable[TOWN_BMAID][Q_BUTCHER] = TEXT_GILLIAN_BUTCHER2;
-				QuestDialogTable[TOWN_HEALER][Q_BUTCHER] = TEXT_PEPIN_BUTCHER2;
-				QuestDialogTable[TOWN_SMITH][Q_BUTCHER] = TEXT_GRISWOLD_BUTCHER2;
-				QuestDialogTable[TOWN_PEGBOY][Q_BUTCHER] = TEXT_WIRT_BUTCHER3;
-				QuestDialogTable[TOWN_STORY][Q_BUTCHER] = TEXT_CAIN_BUTCHER2;
-				QuestDialogTable[TOWN_TAVERN][Q_BUTCHER] = TEXT_OGDEN_BUTCHER2;
-				QuestDialogTable[TOWN_WITCH][Q_BUTCHER] = TEXT_ADRIA_BUTCHER2;
+auto &butcherQuest = Quests[Q_BUTCHER];
+if (butcherQuest._qactive == QUEST_INIT
+    && currlevel >= butcherQuest._qlevel - 1
+    && currlevel <= butcherQuest._qlevel + 1) {
+	butcherQuest._qactive = QUEST_ACTIVE;
+	NetSendCmdQuest(true, butcherQuest);
+}
 
-			}
-		}
-	}
+auto &kingQuest = Quests[Q_SKELKING];
+if (kingQuest._qactive == QUEST_INIT
+    && currlevel >= kingQuest._qlevel - 1
+    && currlevel <= kingQuest._qlevel + 1) {
+	kingQuest._qactive = QUEST_ACTIVE;
+	NetSendCmdQuest(true, kingQuest);
 
 	if (Quests[Q_LTBANNER].IsAvailable()) {
 		Monster *snotSpill = FindUniqueMonster(UniqueMonsterType::SnotSpill);
