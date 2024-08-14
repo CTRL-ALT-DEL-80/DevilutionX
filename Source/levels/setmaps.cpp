@@ -124,11 +124,11 @@ void LoadSetMap()
 		} else if (butcherQuest._qactive == QUEST_ACTIVE) {
 			butcherQuest._qvar2 = QS2_BUTCHER_NO_PORTAL;
 		}
-		LoadPreL1Dungeon("levels\\l1data\\bchamber1.dun");
-		Point spawn { 54, 38 };
-		LoadL1Dungeon("levels\\l1data\\bchamber2.dun", spawn + Direction::South);
-		SetMapTransparency("levels\\l1data\\bchambert.dun");
-		LoadPalette("levels\\l1data\\l1_1.pal");
+		//LoadPreL1Dungeon("levels\\l1data\\bchamber1.dun");
+		Point spawn { 25, 75 };
+		LoadL1Dungeon("levels\\l1data\\bchamber.dun", spawn + Direction::South);
+		//SetMapTransparency("levels\\l1data\\bchambert.dun");
+		LoadPalette("levels\\l1data\\l1_2.pal");
 		AddButcherObjs();
 		if (butcherQuest._qactive != QUEST_DONE)
 			InitNoTriggers();
