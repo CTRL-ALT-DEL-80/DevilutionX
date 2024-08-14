@@ -404,9 +404,6 @@ void PlaceUniqueMonst(UniqueMonsterType uniqindex, size_t minionType, int bosspa
 			position = SetPiece.position.megaToWorld() + Displacement { 5, 9 };
 		}
 	}
-	if (uniqindex == UniqueMonsterType::Butcher) {
-		position = SetPiece.position.megaToWorld() + Displacement { 4, 4 };
-	}
 
 	if (uniqindex == UniqueMonsterType::NaKrul) {
 		if (UberRow == 0 || UberCol == 0) {
