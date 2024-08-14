@@ -2940,6 +2940,9 @@ void LoadGameLevel(bool firstflag, lvl_entry lvldir)
 			if (Quests[Q_BETRAYER]._qactive == QUEST_DONE)
 				Quests[Q_BETRAYER]._qvar2 = 2;
 		}
+		if (Quests[Q_BUTCHER]._qactive == QUEST_DONE) {
+			Quests[Q_BUTCHER]._qvar2 = QS2_BUTCHER_DO_PORTAL;
+		}
 		if (lvldir == ENTRY_WARPLVL)
 			GetPortalLvlPos();
 
