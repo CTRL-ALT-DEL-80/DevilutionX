@@ -122,7 +122,6 @@ void LoadSetMap()
 		} else if (Quests[Q_BUTCHER]._qactive == QUEST_ACTIVE) {
 			Quests[Q_BUTCHER]._qvar2 = QS2_BUTCHER_NO_PORTAL;
 		}
-		//NEED TO CREATE MAP...
 		LoadPreL1Dungeon("levels\\l1data\\bchamber1.dun");
 		Point spawn { 54, 38 };
 		LoadL1Dungeon("levels\\l1data\\bchamber2.dun", spawn + Direction::South);
