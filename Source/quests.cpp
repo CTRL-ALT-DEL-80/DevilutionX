@@ -357,7 +357,6 @@ void CheckQuests()
 	    && vileQuest._qvar1 >= 2
 	    && (vileQuest._qactive == QUEST_ACTIVE || vileQuest._qactive == QUEST_DONE)
 	    && (vileQuest._qvar2 == 0 || vileQuest._qvar2 == 2)) {
-	    && (quest._qvar2 == 0 || quest._qvar2 == 2)) {
 		// Spawn a portal at the quest trigger location
 		AddMissile(vileQuest.position, vileQuest.position, Direction::South, MissileID::RedPortal, TARGET_MONSTERS, MyPlayerId, 0, 0);
 		vileQuest._qvar2 = 1;
