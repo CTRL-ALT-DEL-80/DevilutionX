@@ -347,7 +347,7 @@ void CheckQuests()
 	    && butcherQuest._qvar1 >= QS_BUTCHER_PORTAL_UP
 	    && (butcherQuest._qactive == QUEST_ACTIVE || butcherQuest._qactive == QUEST_DONE)
 	    && butcherQuest._qvar2 == QS2_BUTCHER_DO_PORTAL) {
-		Point portalLocation { 54, 38 };
+		Point portalLocation { 25, 75 };
 		AddMissile(portalLocation, portalLocation, Direction::South, MissileID::RedPortal, TARGET_MONSTERS, MyPlayerId, 0, 0);
 		butcherQuest._qvar2 = QS2_BUTCHER_NO_PORTAL;
 	}
@@ -442,7 +442,7 @@ void CheckQuestKill(const Monster &monster, bool sendmsg)
 		myPlayer.Say(HeroSpeech::TheSpiritsOfTheDeadAreNowAvenged, 30);
 		InitButcherTriggers();
 		quest._qvar2 = 4;
-		AddMissile({ 54, 38 }, { 54, 38 }, Direction::South, MissileID::RedPortal, TARGET_MONSTERS, MyPlayerId, 0, 0);
+		AddMissile({ 25, 75 }, { 25, 75 }, Direction::South, MissileID::RedPortal, TARGET_MONSTERS, MyPlayerId, 0, 0);
 		if (sendmsg)
 			NetSendCmdQuest(true, quest);
 
