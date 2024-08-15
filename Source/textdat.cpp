@@ -733,8 +733,8 @@ const Speech Speeches[] = {
 	    true, SfxID::Griswold8 },
 	{ N_("The blade Azurewrath... It's legend! It was cast by the angelic weaponsmith Cinadide and tempered within the fires of judgment! Whoever wields this weapon will find the legions of Hell at his feet! If you found this blade, I would begin to truly believe that you could end the nightmare that has befallen our town."),
 	    true, SfxID::Griswold9 },
-	{ N_("When I found Wirt, he was very near a room that sounds like the vile pit you've described. The stench of death was heavy in the air and, consumed as I was with getting the lad to safety, I did not go further than I had to. If he claims to know something of that place, I would not discount his word easily."),
-	    true, SfxID::TSfxID::SFX_SMITH11 },
+	/*{ N_("When I found Wirt, he was very near a room that sounds like the vile pit you've described. The stench of death was heavy in the air and, consumed as I was with getting the lad to safety, I did not go further than I had to. If he claims to know something of that place, I would not discount his word easily."),
+	    true, SfxID::TSfxID::SFX_SMITH11 },*/
 	{ N_("Farnham speaks of a place that exists, at least in legend. Warriors would go to a place at the edge of Hell to gird themselves for battle against the armies of darkness. If the stories are true, SfxID::untold treasures could lie upon this island of the sunless sea."),
 	    true, SfxID::Griswold15 },
 	{ N_("Ah, you speak of an ancient and evil weapon. Tread lightly in this area, for the legends of Shadowfang are as black as a moonless winter night. Crafted within the Hellforge, Shadowfang can rend the very soul from whoever it strikes. I do not envy you if is in your mind to defeat the one who wields it. May light protect you, brave hero."),
