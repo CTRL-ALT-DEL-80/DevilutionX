@@ -828,7 +828,7 @@ const Speech Speeches[] = {
 	{ N_("The evil that you move against is the Dark Lord of Terror, known to mortal man as... Diablo. It was he who was imprisoned within the labyrinth many centuries ago. Find Diablo... or we may never have a chance to rid the world of his evil again!"),
 	    true, SfxID::Cain0 },
 	{ N_("Yes, you speak of Lazarus, one who was once well-respected in our land. Even before King Leoric descended into madness and lost his son, the Archishop Lazarus was acting... strangely. Lazarus seemed to be motivated by unseen forces, clinging to shadows, and acting out some dark plan that was not his own."),
-	    1, 5, SfxID::Cain3 },
+	    true, SfxID::Cain3 },
 	{ N_("Worms that rise up from the ground? Many of the ancient writings speak of poisonous insects, and foul creatures of the skies and seas, plaguing mankind. It is no surprise that the very earth would offer up a similar peril, now that the denizens of the underworld are upon us."),
 	    true, SfxID::Cain5 },
 	{ N_("While the barmaid may seem a bit confused at times, it is true that men have been disappearing from the village. It reminds me of ancient writings about a demonic temptress called Andariel. Known as the Maiden of Anguish, her thirst for mortal blood was so great, that she sought to learn a spell to breach the mortal realm. By seducing one of the dark sorcerers of the netherworld, Andariel took the knowledge she needed and so began to lure mortal men into her dark corner of Hell. If these legends are true, SfxID::she's not a creature to be taken lightly."),
