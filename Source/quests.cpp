@@ -667,6 +667,7 @@ if (kingQuest._qactive == QUEST_INIT
     && currlevel <= kingQuest._qlevel + 1) {
 	kingQuest._qactive = QUEST_ACTIVE;
 	NetSendCmdQuest(true, kingQuest);
+}
 
 	if (Quests[Q_LTBANNER].IsAvailable()) {
 		Monster *snotSpill = FindUniqueMonster(UniqueMonsterType::SnotSpill);
